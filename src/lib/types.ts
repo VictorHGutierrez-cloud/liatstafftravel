@@ -77,7 +77,7 @@ export interface Employee {
   employmentType: "permanent" | "contractual";
   probationCleared: boolean;
   leisureEligibleFrom: string;
-  managerId?: string;
+  managerId?: string | undefined;
   balances: Balances;
   allocation: Balances;
   archives: ArchivedYear[];
@@ -93,7 +93,7 @@ export interface Dependant {
   dob: string;
   idDocStatus: "Not provided" | "Submitted" | "Expired";
   status: VerificationStatus;
-  note?: string;
+  note?: string | undefined;
   renewalDue: boolean;
 }
 
@@ -102,7 +102,7 @@ export interface AuditEvent {
   actorName: string;
   actorRole: Role;
   action: string;
-  note?: string;
+  note?: string | undefined;
 }
 
 export type DutyStatus =

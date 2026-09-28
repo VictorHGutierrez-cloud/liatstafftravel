@@ -120,7 +120,7 @@ export function leisureActions(req: LeisureRequest, user: Employee, role: Role):
   }
   if (req.status === "HR released" && role === "traveldesk")
     actions.push({ key: "ticket", label: "Issue ticket (draws down entitlement)", tone: "primary", needsFields: "ticket" });
-  if (isOwner && role === "employee" && req.status !== "Ticketed")
+  if (isOwner && role === "employee")
     actions.push({ key: "cancel", label: "Cancel request", tone: "danger" });
   return actions;
 }
