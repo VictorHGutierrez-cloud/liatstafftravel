@@ -13,7 +13,9 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApprovalsRouteImport } from './routes/approvals'
 import { Route as CommercialRouteImport } from './routes/commercial'
 import { Route as DependantsRouteImport } from './routes/dependants'
+import { Route as FinanceRouteImport } from './routes/finance'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as HrRouteImport } from './routes/hr'
 import { Route as MyRequestsRouteImport } from './routes/my-requests'
 import { Route as NewDutyRouteImport } from './routes/new-duty'
 import { Route as NewLeisureRouteImport } from './routes/new-leisure'
@@ -40,9 +42,19 @@ const DependantsRoute = DependantsRouteImport.update({
   path: '/dependants',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FinanceRoute = FinanceRouteImport.update({
+  id: '/finance',
+  path: '/finance',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HrRoute = HrRouteImport.update({
+  id: '/hr',
+  path: '/hr',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MyRequestsRoute = MyRequestsRouteImport.update({
@@ -76,7 +88,9 @@ export interface FileRoutesByFullPath {
   '/approvals': typeof ApprovalsRoute
   '/commercial': typeof CommercialRoute
   '/dependants': typeof DependantsRoute
+  '/finance': typeof FinanceRoute
   '/home': typeof HomeRoute
+  '/hr': typeof HrRoute
   '/my-requests': typeof MyRequestsRoute
   '/new-duty': typeof NewDutyRoute
   '/new-leisure': typeof NewLeisureRoute
@@ -88,7 +102,9 @@ export interface FileRoutesByTo {
   '/approvals': typeof ApprovalsRoute
   '/commercial': typeof CommercialRoute
   '/dependants': typeof DependantsRoute
+  '/finance': typeof FinanceRoute
   '/home': typeof HomeRoute
+  '/hr': typeof HrRoute
   '/my-requests': typeof MyRequestsRoute
   '/new-duty': typeof NewDutyRoute
   '/new-leisure': typeof NewLeisureRoute
@@ -101,7 +117,9 @@ export interface FileRoutesById {
   '/approvals': typeof ApprovalsRoute
   '/commercial': typeof CommercialRoute
   '/dependants': typeof DependantsRoute
+  '/finance': typeof FinanceRoute
   '/home': typeof HomeRoute
+  '/hr': typeof HrRoute
   '/my-requests': typeof MyRequestsRoute
   '/new-duty': typeof NewDutyRoute
   '/new-leisure': typeof NewLeisureRoute
@@ -115,7 +133,9 @@ export interface FileRouteTypes {
     | '/approvals'
     | '/commercial'
     | '/dependants'
+    | '/finance'
     | '/home'
+    | '/hr'
     | '/my-requests'
     | '/new-duty'
     | '/new-leisure'
@@ -127,7 +147,9 @@ export interface FileRouteTypes {
     | '/approvals'
     | '/commercial'
     | '/dependants'
+    | '/finance'
     | '/home'
+    | '/hr'
     | '/my-requests'
     | '/new-duty'
     | '/new-leisure'
@@ -139,7 +161,9 @@ export interface FileRouteTypes {
     | '/approvals'
     | '/commercial'
     | '/dependants'
+    | '/finance'
     | '/home'
+    | '/hr'
     | '/my-requests'
     | '/new-duty'
     | '/new-leisure'
@@ -152,7 +176,9 @@ export interface RootRouteChildren {
   ApprovalsRoute: typeof ApprovalsRoute
   CommercialRoute: typeof CommercialRoute
   DependantsRoute: typeof DependantsRoute
+  FinanceRoute: typeof FinanceRoute
   HomeRoute: typeof HomeRoute
+  HrRoute: typeof HrRoute
   MyRequestsRoute: typeof MyRequestsRoute
   NewDutyRoute: typeof NewDutyRoute
   NewLeisureRoute: typeof NewLeisureRoute
@@ -190,11 +216,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DependantsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/finance': {
+      id: '/finance'
+      path: '/finance'
+      fullPath: '/finance'
+      preLoaderRoute: typeof FinanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/home': {
       id: '/home'
       path: '/home'
       fullPath: '/home'
       preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hr': {
+      id: '/hr'
+      path: '/hr'
+      fullPath: '/hr'
+      preLoaderRoute: typeof HrRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/my-requests': {
@@ -240,7 +280,9 @@ const rootRouteChildren: RootRouteChildren = {
   ApprovalsRoute: ApprovalsRoute,
   CommercialRoute: CommercialRoute,
   DependantsRoute: DependantsRoute,
+  FinanceRoute: FinanceRoute,
   HomeRoute: HomeRoute,
+  HrRoute: HrRoute,
   MyRequestsRoute: MyRequestsRoute,
   NewDutyRoute: NewDutyRoute,
   NewLeisureRoute: NewLeisureRoute,
