@@ -10,11 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DependantsRouteImport } from './routes/dependants'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as MyRequestsRouteImport } from './routes/my-requests'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DependantsRoute = DependantsRouteImport.update({
+  id: '/dependants',
+  path: '/dependants',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRoute = HomeRouteImport.update({
@@ -22,31 +29,44 @@ const HomeRoute = HomeRouteImport.update({
   path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MyRequestsRoute = MyRequestsRouteImport.update({
+  id: '/my-requests',
+  path: '/my-requests',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dependants': typeof DependantsRoute
   '/home': typeof HomeRoute
+  '/my-requests': typeof MyRequestsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dependants': typeof DependantsRoute
   '/home': typeof HomeRoute
+  '/my-requests': typeof MyRequestsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dependants': typeof DependantsRoute
   '/home': typeof HomeRoute
+  '/my-requests': typeof MyRequestsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home'
+  fullPaths: '/' | '/dependants' | '/home' | '/my-requests'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home'
-  id: '__root__' | '/' | '/home'
+  to: '/' | '/dependants' | '/home' | '/my-requests'
+  id: '__root__' | '/' | '/dependants' | '/home' | '/my-requests'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DependantsRoute: typeof DependantsRoute
   HomeRoute: typeof HomeRoute
+  MyRequestsRoute: typeof MyRequestsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +78,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dependants': {
+      id: '/dependants'
+      path: '/dependants'
+      fullPath: '/dependants'
+      preLoaderRoute: typeof DependantsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/home': {
       id: '/home'
       path: '/home'
@@ -65,12 +92,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/my-requests': {
+      id: '/my-requests'
+      path: '/my-requests'
+      fullPath: '/my-requests'
+      preLoaderRoute: typeof MyRequestsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DependantsRoute: DependantsRoute,
   HomeRoute: HomeRoute,
+  MyRequestsRoute: MyRequestsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
