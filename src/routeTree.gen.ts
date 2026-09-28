@@ -15,6 +15,7 @@ import { Route as HomeRouteImport } from './routes/home'
 import { Route as MyRequestsRouteImport } from './routes/my-requests'
 import { Route as NewDutyRouteImport } from './routes/new-duty'
 import { Route as NewLeisureRouteImport } from './routes/new-leisure'
+import { Route as RequestIdRouteImport } from './routes/request.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const NewLeisureRoute = NewLeisureRouteImport.update({
   path: '/new-leisure',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RequestIdRoute = RequestIdRouteImport.update({
+  id: '/request/$id',
+  path: '/request/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/my-requests': typeof MyRequestsRoute
   '/new-duty': typeof NewDutyRoute
   '/new-leisure': typeof NewLeisureRoute
+  '/request/$id': typeof RequestIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/my-requests': typeof MyRequestsRoute
   '/new-duty': typeof NewDutyRoute
   '/new-leisure': typeof NewLeisureRoute
+  '/request/$id': typeof RequestIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/my-requests': typeof MyRequestsRoute
   '/new-duty': typeof NewDutyRoute
   '/new-leisure': typeof NewLeisureRoute
+  '/request/$id': typeof RequestIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/my-requests'
     | '/new-duty'
     | '/new-leisure'
+    | '/request/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/my-requests'
     | '/new-duty'
     | '/new-leisure'
+    | '/request/$id'
   id:
     | '__root__'
     | '/'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/my-requests'
     | '/new-duty'
     | '/new-leisure'
+    | '/request/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,6 +118,7 @@ export interface RootRouteChildren {
   MyRequestsRoute: typeof MyRequestsRoute
   NewDutyRoute: typeof NewDutyRoute
   NewLeisureRoute: typeof NewLeisureRoute
+  RequestIdRoute: typeof RequestIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -152,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewLeisureRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/request/$id': {
+      id: '/request/$id'
+      path: '/request/$id'
+      fullPath: '/request/$id'
+      preLoaderRoute: typeof RequestIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -162,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   MyRequestsRoute: MyRequestsRoute,
   NewDutyRoute: NewDutyRoute,
   NewLeisureRoute: NewLeisureRoute,
+  RequestIdRoute: RequestIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
