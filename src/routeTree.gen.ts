@@ -10,33 +10,219 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ApprovalsRouteImport } from './routes/approvals'
+import { Route as CommercialRouteImport } from './routes/commercial'
+import { Route as DependantsRouteImport } from './routes/dependants'
+import { Route as FinanceRouteImport } from './routes/finance'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as HowToDemoRouteImport } from './routes/how-to-demo'
+import { Route as HrRouteImport } from './routes/hr'
+import { Route as MyRequestsRouteImport } from './routes/my-requests'
+import { Route as NewDutyRouteImport } from './routes/new-duty'
+import { Route as NewLeisureRouteImport } from './routes/new-leisure'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as TravelDeskRouteImport } from './routes/travel-desk'
+import { Route as RequestIdRouteImport } from './routes/request.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApprovalsRoute = ApprovalsRouteImport.update({
+  id: '/approvals',
+  path: '/approvals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommercialRoute = CommercialRouteImport.update({
+  id: '/commercial',
+  path: '/commercial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DependantsRoute = DependantsRouteImport.update({
+  id: '/dependants',
+  path: '/dependants',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinanceRoute = FinanceRouteImport.update({
+  id: '/finance',
+  path: '/finance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowToDemoRoute = HowToDemoRouteImport.update({
+  id: '/how-to-demo',
+  path: '/how-to-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HrRoute = HrRouteImport.update({
+  id: '/hr',
+  path: '/hr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyRequestsRoute = MyRequestsRouteImport.update({
+  id: '/my-requests',
+  path: '/my-requests',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewDutyRoute = NewDutyRouteImport.update({
+  id: '/new-duty',
+  path: '/new-duty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewLeisureRoute = NewLeisureRouteImport.update({
+  id: '/new-leisure',
+  path: '/new-leisure',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TravelDeskRoute = TravelDeskRouteImport.update({
+  id: '/travel-desk',
+  path: '/travel-desk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestIdRoute = RequestIdRouteImport.update({
+  id: '/request/$id',
+  path: '/request/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/approvals': typeof ApprovalsRoute
+  '/commercial': typeof CommercialRoute
+  '/dependants': typeof DependantsRoute
+  '/finance': typeof FinanceRoute
+  '/home': typeof HomeRoute
+  '/how-to-demo': typeof HowToDemoRoute
+  '/hr': typeof HrRoute
+  '/my-requests': typeof MyRequestsRoute
+  '/new-duty': typeof NewDutyRoute
+  '/new-leisure': typeof NewLeisureRoute
+  '/reports': typeof ReportsRoute
+  '/travel-desk': typeof TravelDeskRoute
+  '/request/$id': typeof RequestIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/approvals': typeof ApprovalsRoute
+  '/commercial': typeof CommercialRoute
+  '/dependants': typeof DependantsRoute
+  '/finance': typeof FinanceRoute
+  '/home': typeof HomeRoute
+  '/how-to-demo': typeof HowToDemoRoute
+  '/hr': typeof HrRoute
+  '/my-requests': typeof MyRequestsRoute
+  '/new-duty': typeof NewDutyRoute
+  '/new-leisure': typeof NewLeisureRoute
+  '/reports': typeof ReportsRoute
+  '/travel-desk': typeof TravelDeskRoute
+  '/request/$id': typeof RequestIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/approvals': typeof ApprovalsRoute
+  '/commercial': typeof CommercialRoute
+  '/dependants': typeof DependantsRoute
+  '/finance': typeof FinanceRoute
+  '/home': typeof HomeRoute
+  '/how-to-demo': typeof HowToDemoRoute
+  '/hr': typeof HrRoute
+  '/my-requests': typeof MyRequestsRoute
+  '/new-duty': typeof NewDutyRoute
+  '/new-leisure': typeof NewLeisureRoute
+  '/reports': typeof ReportsRoute
+  '/travel-desk': typeof TravelDeskRoute
+  '/request/$id': typeof RequestIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/approvals'
+    | '/commercial'
+    | '/dependants'
+    | '/finance'
+    | '/home'
+    | '/how-to-demo'
+    | '/hr'
+    | '/my-requests'
+    | '/new-duty'
+    | '/new-leisure'
+    | '/reports'
+    | '/travel-desk'
+    | '/request/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin'
+    | '/approvals'
+    | '/commercial'
+    | '/dependants'
+    | '/finance'
+    | '/home'
+    | '/how-to-demo'
+    | '/hr'
+    | '/my-requests'
+    | '/new-duty'
+    | '/new-leisure'
+    | '/reports'
+    | '/travel-desk'
+    | '/request/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/approvals'
+    | '/commercial'
+    | '/dependants'
+    | '/finance'
+    | '/home'
+    | '/how-to-demo'
+    | '/hr'
+    | '/my-requests'
+    | '/new-duty'
+    | '/new-leisure'
+    | '/reports'
+    | '/travel-desk'
+    | '/request/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  ApprovalsRoute: typeof ApprovalsRoute
+  CommercialRoute: typeof CommercialRoute
+  DependantsRoute: typeof DependantsRoute
+  FinanceRoute: typeof FinanceRoute
+  HomeRoute: typeof HomeRoute
+  HowToDemoRoute: typeof HowToDemoRoute
+  HrRoute: typeof HrRoute
+  MyRequestsRoute: typeof MyRequestsRoute
+  NewDutyRoute: typeof NewDutyRoute
+  NewLeisureRoute: typeof NewLeisureRoute
+  ReportsRoute: typeof ReportsRoute
+  TravelDeskRoute: typeof TravelDeskRoute
+  RequestIdRoute: typeof RequestIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +234,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/approvals': {
+      id: '/approvals'
+      path: '/approvals'
+      fullPath: '/approvals'
+      preLoaderRoute: typeof ApprovalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/commercial': {
+      id: '/commercial'
+      path: '/commercial'
+      fullPath: '/commercial'
+      preLoaderRoute: typeof CommercialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dependants': {
+      id: '/dependants'
+      path: '/dependants'
+      fullPath: '/dependants'
+      preLoaderRoute: typeof DependantsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finance': {
+      id: '/finance'
+      path: '/finance'
+      fullPath: '/finance'
+      preLoaderRoute: typeof FinanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to-demo': {
+      id: '/how-to-demo'
+      path: '/how-to-demo'
+      fullPath: '/how-to-demo'
+      preLoaderRoute: typeof HowToDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hr': {
+      id: '/hr'
+      path: '/hr'
+      fullPath: '/hr'
+      preLoaderRoute: typeof HrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-requests': {
+      id: '/my-requests'
+      path: '/my-requests'
+      fullPath: '/my-requests'
+      preLoaderRoute: typeof MyRequestsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-duty': {
+      id: '/new-duty'
+      path: '/new-duty'
+      fullPath: '/new-duty'
+      preLoaderRoute: typeof NewDutyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-leisure': {
+      id: '/new-leisure'
+      path: '/new-leisure'
+      fullPath: '/new-leisure'
+      preLoaderRoute: typeof NewLeisureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/travel-desk': {
+      id: '/travel-desk'
+      path: '/travel-desk'
+      fullPath: '/travel-desk'
+      preLoaderRoute: typeof TravelDeskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/request/$id': {
+      id: '/request/$id'
+      path: '/request/$id'
+      fullPath: '/request/$id'
+      preLoaderRoute: typeof RequestIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  ApprovalsRoute: ApprovalsRoute,
+  CommercialRoute: CommercialRoute,
+  DependantsRoute: DependantsRoute,
+  FinanceRoute: FinanceRoute,
+  HomeRoute: HomeRoute,
+  HowToDemoRoute: HowToDemoRoute,
+  HrRoute: HrRoute,
+  MyRequestsRoute: MyRequestsRoute,
+  NewDutyRoute: NewDutyRoute,
+  NewLeisureRoute: NewLeisureRoute,
+  ReportsRoute: ReportsRoute,
+  TravelDeskRoute: TravelDeskRoute,
+  RequestIdRoute: RequestIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
