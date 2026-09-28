@@ -4,7 +4,11 @@ Implement exactly the screenshot and nothing else
 
 This project was built with [Lovable](https://lovable.dev).
 
-**Live app**: https://liatstafftravel.lovable.app
+**Live app (Lovable)**: https://liatstafftravel.lovable.app
+
+**GitHub Pages**: https://victorhgutierrez-cloud.github.io/liatstafftravel/
+
+After you push to `main`, GitHub Actions builds and publishes the site automatically. First time only: in the repo go to **Settings → Pages → Source** and choose **GitHub Actions**.
 
 ## Build with Lovable
 

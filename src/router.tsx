@@ -5,11 +5,18 @@ import { routeTree } from "./routeTree.gen";
 export const getRouter = () => {
   const queryClient = new QueryClient();
 
+  // Match Vite `base` (e.g. /liatstafftravel/ on GitHub Pages, / locally / Lovable)
+  const basepath =
+    import.meta.env.BASE_URL === "/"
+      ? undefined
+      : import.meta.env.BASE_URL.replace(/\/$/, "");
+
   const router = createRouter({
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
+    ...(basepath ? { basepath } : {}),
   });
 
   return router;
