@@ -10,16 +10,29 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApprovalsRouteImport } from './routes/approvals'
+import { Route as CommercialRouteImport } from './routes/commercial'
 import { Route as DependantsRouteImport } from './routes/dependants'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as MyRequestsRouteImport } from './routes/my-requests'
 import { Route as NewDutyRouteImport } from './routes/new-duty'
 import { Route as NewLeisureRouteImport } from './routes/new-leisure'
+import { Route as TravelDeskRouteImport } from './routes/travel-desk'
 import { Route as RequestIdRouteImport } from './routes/request.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApprovalsRoute = ApprovalsRouteImport.update({
+  id: '/approvals',
+  path: '/approvals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommercialRoute = CommercialRouteImport.update({
+  id: '/commercial',
+  path: '/commercial',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DependantsRoute = DependantsRouteImport.update({
@@ -47,6 +60,11 @@ const NewLeisureRoute = NewLeisureRouteImport.update({
   path: '/new-leisure',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TravelDeskRoute = TravelDeskRouteImport.update({
+  id: '/travel-desk',
+  path: '/travel-desk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RequestIdRoute = RequestIdRouteImport.update({
   id: '/request/$id',
   path: '/request/$id',
@@ -55,69 +73,90 @@ const RequestIdRoute = RequestIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/approvals': typeof ApprovalsRoute
+  '/commercial': typeof CommercialRoute
   '/dependants': typeof DependantsRoute
   '/home': typeof HomeRoute
   '/my-requests': typeof MyRequestsRoute
   '/new-duty': typeof NewDutyRoute
   '/new-leisure': typeof NewLeisureRoute
+  '/travel-desk': typeof TravelDeskRoute
   '/request/$id': typeof RequestIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/approvals': typeof ApprovalsRoute
+  '/commercial': typeof CommercialRoute
   '/dependants': typeof DependantsRoute
   '/home': typeof HomeRoute
   '/my-requests': typeof MyRequestsRoute
   '/new-duty': typeof NewDutyRoute
   '/new-leisure': typeof NewLeisureRoute
+  '/travel-desk': typeof TravelDeskRoute
   '/request/$id': typeof RequestIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/approvals': typeof ApprovalsRoute
+  '/commercial': typeof CommercialRoute
   '/dependants': typeof DependantsRoute
   '/home': typeof HomeRoute
   '/my-requests': typeof MyRequestsRoute
   '/new-duty': typeof NewDutyRoute
   '/new-leisure': typeof NewLeisureRoute
+  '/travel-desk': typeof TravelDeskRoute
   '/request/$id': typeof RequestIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/approvals'
+    | '/commercial'
     | '/dependants'
     | '/home'
     | '/my-requests'
     | '/new-duty'
     | '/new-leisure'
+    | '/travel-desk'
     | '/request/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/approvals'
+    | '/commercial'
     | '/dependants'
     | '/home'
     | '/my-requests'
     | '/new-duty'
     | '/new-leisure'
+    | '/travel-desk'
     | '/request/$id'
   id:
     | '__root__'
     | '/'
+    | '/approvals'
+    | '/commercial'
     | '/dependants'
     | '/home'
     | '/my-requests'
     | '/new-duty'
     | '/new-leisure'
+    | '/travel-desk'
     | '/request/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApprovalsRoute: typeof ApprovalsRoute
+  CommercialRoute: typeof CommercialRoute
   DependantsRoute: typeof DependantsRoute
   HomeRoute: typeof HomeRoute
   MyRequestsRoute: typeof MyRequestsRoute
   NewDutyRoute: typeof NewDutyRoute
   NewLeisureRoute: typeof NewLeisureRoute
+  TravelDeskRoute: typeof TravelDeskRoute
   RequestIdRoute: typeof RequestIdRoute
 }
 
@@ -128,6 +167,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/approvals': {
+      id: '/approvals'
+      path: '/approvals'
+      fullPath: '/approvals'
+      preLoaderRoute: typeof ApprovalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/commercial': {
+      id: '/commercial'
+      path: '/commercial'
+      fullPath: '/commercial'
+      preLoaderRoute: typeof CommercialRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dependants': {
@@ -165,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewLeisureRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/travel-desk': {
+      id: '/travel-desk'
+      path: '/travel-desk'
+      fullPath: '/travel-desk'
+      preLoaderRoute: typeof TravelDeskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/request/$id': {
       id: '/request/$id'
       path: '/request/$id'
@@ -177,11 +237,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApprovalsRoute: ApprovalsRoute,
+  CommercialRoute: CommercialRoute,
   DependantsRoute: DependantsRoute,
   HomeRoute: HomeRoute,
   MyRequestsRoute: MyRequestsRoute,
   NewDutyRoute: NewDutyRoute,
   NewLeisureRoute: NewLeisureRoute,
+  TravelDeskRoute: TravelDeskRoute,
   RequestIdRoute: RequestIdRoute,
 }
 export const routeTree = rootRouteImport
