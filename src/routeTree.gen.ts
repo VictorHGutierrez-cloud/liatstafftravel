@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as DependantsRouteImport } from './routes/dependants'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as MyRequestsRouteImport } from './routes/my-requests'
+import { Route as NewDutyRouteImport } from './routes/new-duty'
+import { Route as NewLeisureRouteImport } from './routes/new-leisure'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +36,32 @@ const MyRequestsRoute = MyRequestsRouteImport.update({
   path: '/my-requests',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewDutyRoute = NewDutyRouteImport.update({
+  id: '/new-duty',
+  path: '/new-duty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewLeisureRoute = NewLeisureRouteImport.update({
+  id: '/new-leisure',
+  path: '/new-leisure',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dependants': typeof DependantsRoute
   '/home': typeof HomeRoute
   '/my-requests': typeof MyRequestsRoute
+  '/new-duty': typeof NewDutyRoute
+  '/new-leisure': typeof NewLeisureRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dependants': typeof DependantsRoute
   '/home': typeof HomeRoute
   '/my-requests': typeof MyRequestsRoute
+  '/new-duty': typeof NewDutyRoute
+  '/new-leisure': typeof NewLeisureRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +69,34 @@ export interface FileRoutesById {
   '/dependants': typeof DependantsRoute
   '/home': typeof HomeRoute
   '/my-requests': typeof MyRequestsRoute
+  '/new-duty': typeof NewDutyRoute
+  '/new-leisure': typeof NewLeisureRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dependants' | '/home' | '/my-requests'
+  fullPaths:
+    | '/'
+    | '/dependants'
+    | '/home'
+    | '/my-requests'
+    | '/new-duty'
+    | '/new-leisure'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dependants' | '/home' | '/my-requests'
-  id: '__root__' | '/' | '/dependants' | '/home' | '/my-requests'
+  to:
+    | '/'
+    | '/dependants'
+    | '/home'
+    | '/my-requests'
+    | '/new-duty'
+    | '/new-leisure'
+  id:
+    | '__root__'
+    | '/'
+    | '/dependants'
+    | '/home'
+    | '/my-requests'
+    | '/new-duty'
+    | '/new-leisure'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +104,8 @@ export interface RootRouteChildren {
   DependantsRoute: typeof DependantsRoute
   HomeRoute: typeof HomeRoute
   MyRequestsRoute: typeof MyRequestsRoute
+  NewDutyRoute: typeof NewDutyRoute
+  NewLeisureRoute: typeof NewLeisureRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +138,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MyRequestsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/new-duty': {
+      id: '/new-duty'
+      path: '/new-duty'
+      fullPath: '/new-duty'
+      preLoaderRoute: typeof NewDutyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-leisure': {
+      id: '/new-leisure'
+      path: '/new-leisure'
+      fullPath: '/new-leisure'
+      preLoaderRoute: typeof NewLeisureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +160,8 @@ const rootRouteChildren: RootRouteChildren = {
   DependantsRoute: DependantsRoute,
   HomeRoute: HomeRoute,
   MyRequestsRoute: MyRequestsRoute,
+  NewDutyRoute: NewDutyRoute,
+  NewLeisureRoute: NewLeisureRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
